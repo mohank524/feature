@@ -12,13 +12,18 @@ Please edit the config.py
 SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://<username>:<passowrd>@<host>/<db name>' 
 
 $mysql -u root -p
+
 Enter your password
+
 create database <db name>;
 
 
 $python3
+
 from app import db
+
 from models import Features
+
 db.create_all()
 
 The above command create the database Schema in Database
