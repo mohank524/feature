@@ -1,0 +1,91 @@
+<html>
+   <head>
+      <title>Release Notes</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <style>
+         table {
+         width: 100%;
+         margin-top: 1%
+         }
+         table th , td  {
+         border: 1px solid grey;
+         border-collapse: collapse;
+         padding: 5px;
+         }
+         table tr:nth-child(odd) {
+         background-color: #f1f1f1;
+         }
+         table tr:nth-child(even) {
+         background-color: #ffffff;
+         }
+         #div2 {
+         white-space: nowrap; 
+         width: 10em; 
+         overflow: hidden;
+         text-overflow: ellipsis; 
+         /*border: 1px solid #000000;*/
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <p>List of All Features</p>
+         <table>
+            <tbody>
+               <tr>
+                  <th>
+                     Title
+                  </th>
+                  <th>
+                     Description
+                  </th>
+                  <th>
+                     ClientPriority
+                  </th>
+                  <th>
+                     Client
+                  </th>
+                  <th>
+                     TargetDate
+                  </th>
+                  <th>
+                     TargetArea
+                  </th>
+               </tr>
+               <tr>
+                  {% for item in output %}
+                  <td>
+                     <div id="div2">{{item.Title | safe}}</div>
+                     <br />
+                  </td>
+                  <td >
+                     <div id="div2">{{item.Description | safe}}</div>
+                     <br />
+                  </td>
+                  <td>
+                     <div id="div2">{{item.ClientPriority | safe}}</div>
+                     <br />
+                  </td>
+                  <td >
+                     <div id="div2">{{item.Client.name | safe}}</div>
+                     <br />
+                  </td>
+                  <td>
+                     <div id="div2">{{item.TargetDate | safe}}</div>
+                     <br />
+                  </td>
+                  <td>
+                     <div id="div2">{{item.TargetArea.name | safe}}</div>
+                     <br />
+                  </td>
+               </tr>
+               {% endfor %}       
+            </tbody>
+         </table>
+      </div>
+   </body>
+</html>

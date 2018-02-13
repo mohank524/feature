@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <title>Features</title>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+      <script src="https://cdn.ckeditor.com/ckeditor5/1.0.0-alpha.2/classic/ckeditor.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-datetimepicker/2.5.4/build/jquery.datetimepicker.full.min.js"></script>
+      <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+      <script>
+         $(document).ready(function() { 
+           $("#datepicker").datepicker({ minDate : 0});
+         });
+      </script> 
+      <style>
+         .btn-outlined {
+         border-radius: 0;
+         -webkit-transition: all 0.3s;
+         -moz-transition: all 0.3s;
+         transition: all 0.3s;
+         }
+         .btn-outlined.btn-theme {
+         background: none;
+         color: #6f5499;
+         border-color: #6f5499;
+         }
+         .btn-outlined.btn-theme:hover,
+         .btn-outlined.btn-theme:active {
+         color: #FFF;
+         background: #6f5499;
+         border-color: #6f5499;
+         }
+         .ck-editor__editable {
+         border: 1px solid #bfbfbf;
+         height:300px !important;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="container">
+         <form action="/input/" method="post" enctype="multipart/form-data" class="form-horizontal" >
+            <fieldset>
+               <!-- Form Name -->
+               <legend>Form Features</legend>
+               <!-- Text input-->
+               <div class="form-group">
+                  <label class="col-md-2 control-label" for="Title">Title:</label>  
+                  <div class="col-md-10">
+                     <input id="Title" name="Title" type="text" placeholder="Enter Title" class="form-control input-md" required="">
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-md-2 control-label" for="Client">Client</label>  
+                  <div class="col-md-10">
+                     <select id="Client" name="Client" class="form-control">
+                        <option value="0">---Select---</option>
+                        <option value="ClientA">ClientA</option>
+                        <option value="ClientB">ClientB</option>
+                        <option value="ClientC">ClientC</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-md-2 control-label" for="TargetArea">TargetArea</label>  
+                  <div class="col-md-10">
+                     <select id="TargetArea" name="TargetArea" class="form-control">
+                        <option value="0">---Select---</option>
+                        <option value="Policies">Policies</option>
+                        <option value="Billing">Billing</option>
+                        <option value="Claims">Claims</option>
+                        <option value="Reports">Reports</option>
+                     </select>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-md-2 control-label" for="Description">Description</label>
+                  <div class="col-md-10">
+                     <textarea name="Description" row="10" id="editor"></textarea>
+                  </div>
+               </div>
+               <div class="form-group">
+                  <label class="col-md-2 control-label" for="TargetDate">Target Date</label>
+                  <div class="col-md-10">
+                     <input id="datepicker" name="TargetDate" type="text" placeholder="Enter minDate" class="form-control input-md" required="">
+                  </div>
+               </div>
+               <div>
+                  <label class="col-md-2 control-label"></label>
+                  <div class="col-md-10">
+                     <button class="btn btn-success">Save</button>
+                  </div>
+               </div>
+            </fieldset>
+         </form>
+         <br />
+         <br />
+         <br />
+         <a href="/output/" class="btn btn-outlined btn-theme btn-xs" data-wow-delay="0.7s">Show All Features</a>
+      </div>
+      <script>
+         ClassicEditor
+             .create( document.querySelector( '#editor' ) )
+             .catch( error => {
+                 console.error( error );
+             } );
+             
+         
+      </script>
+   </body>
+</html>
